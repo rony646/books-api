@@ -1,19 +1,13 @@
 const express = require('express');
+const { getAllBooks, getBookById, postNewBook } = require('../controllers/books.controller');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('I will list all the books')
-});
+router.get('/', getAllBooks);
 
-router.get('/:id', (req, res) => {
-    const id = req.params.id;
-    res.send(`I will get the book with id ${id}`)
-});
+router.get('/:id', getBookById);
 
-router.post('/create', (req, res) => {
-    res.send('I will create a new book');
-});
+router.post('/create', postNewBook);
 
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
